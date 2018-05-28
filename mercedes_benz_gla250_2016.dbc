@@ -38,18 +38,33 @@ BU_: XXX
 
 BO_ 1 DOORS_STATUS: 8 XXX
  SG_ DOOR_LOCK_STATUS : 31|16@0+ (1,0) [0|65535] "" XXX
+ SG_ CHECKSUM? : 55|16@0+ (1,0) [0|65535] "" XXX
 
 BO_ 3 STEERING_SENSORS: 8 XXX
  SG_ STEER_ANGLE : 7|16@0+ (1,0) [-500|500] "deg" XXX
+ SG_ NEW_SIGNAL_1 : 23|16@0+ (1,0) [0|65535] "" XXX
+ SG_ CHECKSUM? : 55|16@0+ (1,0) [0|65535] "" XXX
 
-BO_ 69 NEW_MSG_3: 8 XXX
- SG_ TURN_SIGNAL_LEVER : 16|8@1+ (1,0) [0|255] "" XXX
- SG_ CRUISE_CONTROL_LEVER : 7|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_2 : 55|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_1 : 63|8@0+ (1,0) [0|255] "" XXX
+BO_ 69 BUTTONS/CRUISE: 8 XXX
  SG_ STEERING_WHEEL_BUTTONS : 32|8@1+ (1,0) [0|255] "4 directional, 2 volume control, & 2 phone buttons" XXX
  SG_ MORE_STEERING_WHEELS_BUTTONS : 40|8@1+ (1,0) [0|255] "" XXX
+ SG_ CHECKSUM? : 55|16@0+ (1,0) [0|65535] "" XXX
+ SG_ TURN_SIGNAL_LEVER : 16|8@1+ (1,0) [0|255] "" XXX
+ SG_ CRUISE_CONTROL_LEVER : 7|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 115 BRAKE_MODULE: 8 XXX
- SG_ BRAKE_PRESSED : 13|1@0+ (1,0) [0|1] "Some sort of delayed break press" XXX
  SG_ BRAKE_PRESSED_2 : 46|1@0+ (1,0) [0|1] "Actual break press e.g light tap" XXX
+
+BO_ 261 ACCEL: 8 XXX
+ SG_ NEW_SIGNAL_1 : 31|16@0+ (1,0) [0|65535] "" XXX
+ SG_ GAS : 7|16@0+ (1,0) [0|65535] "" XXX
+ SG_ NEW_SIGNAL_2 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ CHECKSUM? : 55|16@0+ (1,0) [0|65535] "" XXX
+
+BO_ 513 NEW_MSG_1: 8 XXX
+ SG_ CHECKSUM? : 55|16@0+ (1,0) [0|65535] "" XXX
+
+
+
+
+CM_ SG_ 69 CRUISE_CONTROL_LEVER "1.0 = down, up=2.0, upwards lightly=16, upwards till click turns to 4, downwards lightly = 30, downwards till click = 8";
